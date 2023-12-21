@@ -18,9 +18,9 @@ import pandas as pd
 import os
 
 ## personal access token
-PATS = ""
+PATS = "njbp5vl3a6xg3vm2voubjzctqv3zz7r4s5zszqrzljuqf2mhmfba"
 ## organization name
-organization = ""
+organization = "udemydevopscourse"
 ## REST API url to get all of the project in that specific organization
 url = f"https://dev.azure.com/{organization}/_apis/projects?api-version=7.1-preview.4"
 ## header config
