@@ -18,9 +18,9 @@ import pandas as pd
 import os
 
 ## personal access token
-PATS = "njbp5vl3a6xg3vm2voubjzctqv3zz7r4s5zszqrzljuqf2mhmfba"
+PATS = ""
 ## organization name
-organization = "udemydevopscourse"
+organization = ""
 ## REST API url to get all of the project in that specific organization
 url = f"https://dev.azure.com/{organization}/_apis/projects?api-version=7.1-preview.4"
 ## header config
@@ -36,6 +36,7 @@ repository_ids = []
 ## column names in our csv file to make it more readable and understandable
 column_names = ['project_name',
                 'repository_name',
+                'branch_name',
                 'repository_id',
                 'last_commit_id',
                 'committer_name',
@@ -44,6 +45,9 @@ column_names = ['project_name',
                 'last_commit_link']
 ## creating a blank data frame to store data in an organized way
 df = pd.DataFrame()
+
+## To store the repository id which have issues with extracting the latest changes from "main" or "master"  branch
+err_df = pd.DataFrame()
 
 ## requesting to the REST API and get the response
 response = requests.get(url, headers=headers, auth=auth)
@@ -111,6 +115,7 @@ if response.status_code == 200:
             # project_name, repository_name, repository_id, then of it described before in this block
             data = [repo[0],
                     repository_names[idx],
+                    name,
                     repo[1],
                     commit_id,
                     committer_name,
@@ -126,6 +131,8 @@ if response.status_code == 200:
             #default branch name is "main"
             name = 'main'
             # REST API to get the last change in the main branch
+            url = f"https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repository_id}/stats/branches?name={name}&api-version=7.2-preview.2"
+            # calling the REST API
             response = requests.get(url, headers=headers, auth=auth)
             # check if the response is valid
             if response.status_code == 200:
@@ -137,7 +144,8 @@ if response.status_code == 200:
                 comment = res['commit']['comment']
                 commit_url = res['commit']['url']
                 data = [repo[0],
-                        repository_names[idx][repo[1]],
+                        repository_names[idx],
+                        name,
                         repo[1],
                         commit_id,
                         committer_name,
@@ -147,6 +155,11 @@ if response.status_code == 200:
                 new_df = pd.DataFrame([data], columns=column_names)
                 df = pd.concat([df, new_df], axis=0, ignore_index=True)
             else:
+                columns = ['project_name', 'repository_name', 'repository_id']
+                data = [project, repository_names[idx], repository_id]
+                new_df = pd.DataFrame([data], columns=columns)
+                # store it to err_dataframe
+                err_df = pd.concat([err_df, new_df], axis=0, ignore_index=True)
                 # If there is an error
                 print(f"Error: {response.status_code} - {response.text}")
     ## Sorting the data according to latest commit date
@@ -154,10 +167,11 @@ if response.status_code == 200:
     ## storing the data into csv format which will be in your same directory where the 
     ## python file is present 
     df.to_csv('./ado_repo_list_by_commit_date.csv', index=False)
+    err_df.to_csv('./errorToFindRepoBranches.csv', index=False)
     print("Succesfully updated the csv file")
 else:
     # If the is an error
-    print(f"Error: {response.status_code} - {response.text}")           
+    print(f"Error: {response.status_code} - {response.text}")        
 
 
         
