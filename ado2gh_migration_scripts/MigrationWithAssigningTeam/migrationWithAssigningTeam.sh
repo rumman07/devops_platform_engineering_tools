@@ -5,8 +5,8 @@ python3 getProject_Repo_Name.py
 ## to use gei and ado2gh firstly you have to set
 # environment variables
 
-export GH_PAT="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"
-export ADO_PAT="xgkbvmuzaiylxtu7n5knskyonuo6dta6yrh7jpog6v5dfzggyyjq"
+export GH_PAT=""
+export ADO_PAT=""
 
 ## connect with your github account
 gh auth login 

@@ -6,8 +6,8 @@ python3 getProject_Repo_Name.py
 # environment variables
 
 ## manuall add er khetre terminal e kore nibo
-export GH_PAT="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"
-export ADO_PAT="xgkbvmuzaiylxtu7n5knskyonuo6dta6yrh7jpog6v5dfzggyyjq"
+export GH_PAT=""
+export ADO_PAT=""
 
 ## connect with your github account
 gh auth login 
