@@ -6,8 +6,8 @@ python3 getProject_Repo_Name.py
 # environment variables
 
 ## manuall add er khetre terminal e kore nibo
-export GH_PAT="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"
-export ADO_PAT="xgkbvmuzaiylxtu7n5knskyonuo6dta6yrh7jpog6v5dfzggyyjq"
+export GH_PAT=""
+export ADO_PAT=""
 
 ## connect with your github account
 gh auth login 
@@ -32,7 +32,7 @@ git_org="ur9-0"
 ## azure organization
 azure_org="udemydevopscourse"
 
-tail -n +2 "$projects" | while IFS=',' read -r project_name repo_name repository_id; do
+tail -n +2 "$projects" | while IFS=',' read -r project_name repo_name; do
     repo_response=$(gh api -X GET "/repos/$git_org/$repo_name")
     not_found=$(echo "$repo_response" | jq -r '.message')
     if [ "$not_found" == "Not Found" ]; then
@@ -40,12 +40,9 @@ tail -n +2 "$projects" | while IFS=',' read -r project_name repo_name repository
         echo "Started Migrating"
         response=$(gh ado2gh migrate-repo --ado-org "$azure_org" --ado-team-project "$project_name" --ado-repo "$repo_name" --github-org "$git_org" --github-repo "$repo_name")
             # Check the exit status of the previous command
-        if [ [ $? -eq 0 ] ]; then
+        if [ $? -eq 0 ]; then
             echo "Migration successful"
             echo "$response"
-            response_update = $(curl -L -u "'':$ADO_PAT" -H "Content-Type: application/json"\
-             -X PATCH https://dev.azure.com/$azure_org/$project_name/_apis/git/repositories/$repository_id?api-version=7.1-preview.1  -d '{"isDisabled": true}' )
-            echo "$response_update"
         else
             echo "Error: Migration failed"
             # Log the details to a CSV file
