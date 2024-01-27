@@ -1,8 +1,11 @@
 import pandas as pd 
 
 df = pd.read_csv('latestCommitInfo.csv')
+project_names = list(df['project_name'])
+for i in range(len(project_names)):
+  project_names[i] = project_names[i].replace(' ','%20')
 data = {
-    'project_name' : df['project_name'].to_numpy(),
+    'project_name' :project_names,
     "repo_name" : df['repository_name'].to_numpy(),
     "repository_id":df['repository_id'].to_numpy(),
  }
