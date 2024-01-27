@@ -1,0 +1,7 @@
+[2024-01-28 02:18:28] [INFO] You are running an up-to-date version of the ado2gh CLI [v1.7.1]
+[2024-01-28 02:18:28] [INFO] ADO ORG: udemydevopscourse
+[2024-01-28 02:18:28] [INFO] ADO TEAM PROJECT: The Mcguffin
+[2024-01-28 02:18:28] [INFO] ADO REPO: The Mcguffin
+[2024-01-28 02:18:28] [INFO] GITHUB ORG: u19test
+[2024-01-28 02:18:28] [INFO] GITHUB REPO: The Mcguffin
+[2024-01-28 02:18:28] [ERROR] GH_PAT environment variable is not set.

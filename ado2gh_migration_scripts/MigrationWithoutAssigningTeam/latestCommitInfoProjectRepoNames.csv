@@ -1,8 +1,9 @@
-project_name,repo_name
-TheMcguffin,mainRepo_for_test_purpose
-testazuredevops,test_repo_main
-testazuredevops,testazuredevops
-TheMcguffin,demo_flatris_game
-TheMcguffin,Dual-Axis-Illusion
-demo_arm_template_deploy,demo_arm_template_deploy
-TheMcguffin,TheMcguffin
+project_name_space,project_name,repo_name,repository_id
+The Mcguffin,The%20Mcguffin,mainRepo_for_test_purpose,66d30abb-36fb-493a-98ff-726973841afe
+testazuredevops,testazuredevops,test_repo_main,12697dce-a94d-4990-a36b-2340ea10264b
+The Azure Dev Ops,The%20Azure%20Dev%20Ops,The Azure Dev Ops,79f0f6d2-0333-4eee-9507-e7ae3d47fb8e
+testazuredevops,testazuredevops,testazuredevops,680e0430-90c7-428a-a6b4-3962944f20d5
+The Mcguffin,The%20Mcguffin,demo_flatris_game,b86d1dc5-bc8d-49bf-8a77-71e76a6e7aa3
+The Mcguffin,The%20Mcguffin,Dual-Axis-Illusion,d3fc7aad-49c0-4518-8708-42d77b5865c4
+demo_arm_template_deploy,demo_arm_template_deploy,demo_arm_template_deploy,7c814936-6477-4ef1-9269-3ab51dd1132f
+The Mcguffin,The%20Mcguffin,The Mcguffin,7a5d8d7f-9c49-419b-9f43-42c18fb7ac48
