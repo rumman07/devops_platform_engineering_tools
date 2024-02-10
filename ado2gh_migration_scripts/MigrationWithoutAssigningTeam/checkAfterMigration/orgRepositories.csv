@@ -1,0 +1,8 @@
+id,full_name,isPrivate,git_url,clone_url
+755576179,utesta/demo_arm_template_deploy,True,git://github.com/utesta/demo_arm_template_deploy.git,https://github.com/utesta/demo_arm_template_deploy.git
+755576516,utesta/The-Azure-Dev-Ops,True,git://github.com/utesta/The-Azure-Dev-Ops.git,https://github.com/utesta/The-Azure-Dev-Ops.git
+755576836,utesta/testazuredevops,True,git://github.com/utesta/testazuredevops.git,https://github.com/utesta/testazuredevops.git
+755577132,utesta/demo_flatris_game,True,git://github.com/utesta/demo_flatris_game.git,https://github.com/utesta/demo_flatris_game.git
+755577519,utesta/Dual-Axis-Illusion,True,git://github.com/utesta/Dual-Axis-Illusion.git,https://github.com/utesta/Dual-Axis-Illusion.git
+755577799,utesta/The-Mcguffin,True,git://github.com/utesta/The-Mcguffin.git,https://github.com/utesta/The-Mcguffin.git
+755578191,utesta/mainRepo_for_test_purpose,True,git://github.com/utesta/mainRepo_for_test_purpose.git,https://github.com/utesta/mainRepo_for_test_purpose.git
