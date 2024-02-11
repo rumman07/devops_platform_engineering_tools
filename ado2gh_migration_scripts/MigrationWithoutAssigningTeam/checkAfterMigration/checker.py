@@ -19,4 +19,4 @@ merged = pd.merge(migrated_df, hasto_migrate, left_on='full_name', right_on='rep
 # Filter the rows where the indicator column is 'right_only' (only present in hasto_migrate)
 result = merged[merged['_merge'] == 'right_only']
 result.drop(columns=['id', 'full_name', 'isPrivate', 'git_url','clone_url','_merge'],inplace=True)
-result.to_csv(f'{c_dir}/migrationFailedToTheseRepositories.csv')
+result.to_csv(f'{c_dir}/migrationFailedToTheseRepositories.csv',index=False)
