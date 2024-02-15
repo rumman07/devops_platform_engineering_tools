@@ -44,7 +44,7 @@ def getProjects(organization_name,headers,auth) :
 def getLanguagesOnEachProject(organization_name,projects,headers,auth) :
     try :
         df = pd.DataFrame()
-        for project_name in project_names :
+        for project_name in projects :
             url =f'https://dev.azure.com/{organization_name}/{project_name}/_apis/projectanalysis/languagemetrics' 
             response = requests.get(url, headers=headers, auth=auth)
             results = response.json()
@@ -53,7 +53,7 @@ def getLanguagesOnEachProject(organization_name,projects,headers,auth) :
                 repo_name = repo_hist['name']
                 for lang in repo_hist['languageBreakdown'] :
                     lang_name = lang['name']
-                    if lang_name[0] == '.' or lang_name == 'Unknown' :
+                    if lang_name == 'Unknown' :
                         continue
                     languages.append(lang_name)
                 languages =','.join(languages)
@@ -66,7 +66,7 @@ def getLanguagesOnEachProject(organization_name,projects,headers,auth) :
         logging.error(error_msg)
 
 if __name__ == "__main__":
-    ado_pat =  "iyfmob6xjrfmit66anxbot64umfx3clwx7dz4ynxi5q2z4uqegvq"
+    ado_pat = os.environ.get("ADO_PAT")
     organization_name = "udemydevopscourse" 
     # get the authentication and headers 
     headers,auth = getAuth(ado_pat=ado_pat)

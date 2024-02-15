@@ -52,7 +52,7 @@ def get_user_repositories(gh_pat,org_name):
 if __name__ == "__main__" :
 
     # GitHub Personal Access Token
-    gh_pat = "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"
+    gh_pat = os.environ.get("GH_PAT")
     # Github Organization Name
     org_name = "utesta"
     get_user_repositories(gh_pat,org_name)

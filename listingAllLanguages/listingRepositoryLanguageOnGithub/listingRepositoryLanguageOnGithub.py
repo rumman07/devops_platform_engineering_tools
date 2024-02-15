@@ -6,8 +6,8 @@ import logging
 ## get the current directory
 c_dir = os.path.dirname(os.path.realpath(__file__))
 
-path =f'{'/'.join(os.path.dirname(__file__).split('/')[0:-1])}/GetOrganizationRepositoriesFromGithub/orgRepositories.csv'
-print(path)
+path =f'{'/'.join(os.path.dirname(__file__).split('/')[0:-2])}/ado2gh_migration_scripts/MigrationWithoutAssigningTeam/checkAfterMigration/orgRepositories.csv'
+
 repo_under_organization = pd.read_csv(path)
 repo_names = repo_under_organization['full_name'].to_numpy()
 ## ensuring if the error.log file exists or not
@@ -48,7 +48,7 @@ def get_lang_in_repositories(gh_pat):
 if __name__ == "__main__" :
 
     # GitHub Personal Access Token
-    gh_pat = "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"
+    gh_pat = os.environ.get("GH_PAT")
     # Github User Name
     org_name = "utesta"
     df = get_lang_in_repositories(gh_pat)
