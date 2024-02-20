@@ -6,6 +6,7 @@ import logging
 ## get the current directory
 c_dir = os.path.dirname(os.path.realpath(__file__))
 
+## getting the organization Repositories which have migrated successfully to github
 path =f'{'/'.join(os.path.dirname(__file__).split('/')[0:-2])}/ado2gh_migration_scripts/MigrationWithoutAssigningTeam/checkAfterMigration/orgRepositories.csv'
 
 repo_under_organization = pd.read_csv(path)

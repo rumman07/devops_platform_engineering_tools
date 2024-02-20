@@ -5,8 +5,11 @@ c_dir = os.path.dirname(os.path.realpath(__file__))
 ## dependencies on the GetOrganizationRepositoriesFromGithub
 path = f'{c_dir}/orgRepositories.csv'
 migrated_df = pd.read_csv(path)
+
+## attaining the actual name by taking the second value after splitting
 migrated_df['full_name'] = migrated_df['full_name'].str.split('/').str[1]
 ## dependencies on the migrationOfAzureReposToGithub
+## attaining the latestCommitInfoProjectRepoNames.csv 
 path = f'{'/'.join(os.path.dirname(__file__).split('/')[0:-1])}/latestCommitInfoProjectRepoNames.csv'
 hasto_migrate = pd.read_csv(path)
 hasto_migrate['repo_name'] = hasto_migrate['repo_name'].str.replace(' ','-')

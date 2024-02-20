@@ -15,30 +15,40 @@ if not os.path.exists(f'{c_dir}/error.log'):
 logging.basicConfig(filename=f'{c_dir}/error.log',level=logging.ERROR,format='%(asctime)s - %(levelname)s - %(message)s')
 def get_user_repositories(gh_pat,org_name):
     try :
-        # request header
-        headers = {
-            "Accept": "application/vnd.github+json",
-            "Authorization": f"Bearer {gh_pat}",
-            "X-GitHub-Api-Version": "2022-11-28"
-        }
-
-        url = f"https://api.github.com/orgs/{org_name}/repos"
-        response = requests.get(url, headers=headers)
-         
-        # getting the response into json format
-        results = response.json()
-        columns = ['id','full_name','isPrivate','git_url','clone_url']
-
+        ## page no
+        i = int(1)
         repositories_info = []
-        for repository in results :
-            repositories_info.append((
-                repository['id'],
-                repository['full_name'],
-                repository['private'],
-                repository['git_url'],
-                repository['clone_url'],
-            ));
+        while True :
+            # request header
+            headers = {
+                "Accept": "application/vnd.github+json",
+                "Authorization": f"Bearer {gh_pat}",
+                "X-GitHub-Api-Version": "2022-11-28"
+            }
+            ## parameters to pass to the rest api
+            params={
+                "per_page":100,
+                "page":i,
+            }
+            url = f"https://api.github.com/orgs/{org_name}/repos"
+            response = requests.get(url, headers=headers,params=params)
+            
+            # getting the response into json format
+            results = response.json()
+            columns = ['id','full_name','isPrivate','git_url','clone_url']
 
+            # if there is no repos in that page then break
+            if not results :
+                break
+            for repository in results :
+                repositories_info.append((
+                    repository['id'],
+                    repository['full_name'],
+                    repository['private'],
+                    repository['git_url'],
+                    repository['clone_url'],
+                ));
+            i = i + 1
         # creating a dataframe 
         df = pd.DataFrame(data=repositories_info,columns=columns)
         # exporting it into csv
@@ -54,5 +64,5 @@ if __name__ == "__main__" :
     # GitHub Personal Access Token
     gh_pat = os.environ.get("GH_PAT")
     # Github Organization Name
-    org_name = "utesta"
+    org_name = ""
     get_user_repositories(gh_pat,org_name)
