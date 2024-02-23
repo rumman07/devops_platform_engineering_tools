@@ -69,7 +69,7 @@ def getLatestUpdatesOfRepositoriesOnMasterBranch(organization_name,repositories,
         response = requests.get(url1,headers=headers,auth=auth)
         results = response.json()
         if response.status_code!=200 and "NotFound" in results['typeKey'] :
-            error_msg = f'Repository Is Disabled or You Do Not Have Permission For This Repository : repo_name: {repository["repo_name"]},repo_id: {repo_id}'
+            error_msg = f'Repository Is Disabled or You Do Not Have Permission For This Repository : project_name: {repository["project_name"]} repo_name: {repository["repo_name"]},repo_id: {repo_id}'
             print(error_msg)
             logging.error(error_msg)
             continue 
@@ -110,7 +110,7 @@ def getLatestUpdatesOfRepositoriesOnMainBranch(organization_name,repositories,ma
             response = requests.get(url1,headers=headers,auth=auth)
             results = response.json()
             if response.status_code!=200 and "NotFound" in results['typeKey'] :
-                error_msg = f'Repository Is Disabled or You Do Not Have Permission For This Repository : repo_name: {repository["repo_name"]},repo_id: {repo_id}'
+                error_msg = f'Repository Is Disabled or You Do Not Have Permission For This Repository : project_name: {repository["project_name"]} repo_name: {repository["repo_name"]},repo_id: {repo_id}'
                 print(error_msg)
                 logging.error(error_msg)
                 continue 
