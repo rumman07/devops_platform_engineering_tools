@@ -1,9 +1,11 @@
 project_name,repo_name,languages
 testazuredevops,test_repo_main,Python
-testazuredevops,testazuredevops,"JavaScript,CSS,C#,SQL,ASP.NET"
-demo_arm_template_deploy,demo_arm_template_deploy,
+testazuredevops,testazuredevops,"JavaScript,CSS,C#,.eot,.sqlproj,.refactorlog,.runsettings,SQL,ASP.NET"
+demo_arm_template_deploy,demo_arm_template_deploy,.torrent
+bicep,bicep,
+bicep,bicep-templates,.bicep
 The Azure Dev Ops,The Azure Dev Ops,"Batchfile,Java"
 The Mcguffin,The Mcguffin,
 The Mcguffin,Dual-Axis-Illusion,Javascript
-The Mcguffin,demo_flatris_game,"JavaScript,Shell,CSS"
+The Mcguffin,demo_flatris_game,"JavaScript,.lock,.snap,Shell,.webmanifest,.flowconfig,CSS,.eslintignore,.prettierrc,.prettierignore"
 The Mcguffin,mainRepo_for_test_purpose,

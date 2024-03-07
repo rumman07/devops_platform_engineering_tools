@@ -2,12 +2,12 @@ import requests
 import pandas as pd 
 import os
 import logging
-
+import matplotlib.pyplot as plt
 ## get the current directory
 c_dir = os.path.dirname(os.path.realpath(__file__))
 
 ## getting the organization Repositories which have migrated successfully to github
-path =f'{'/'.join(os.path.dirname(__file__).split('/')[0:-2])}/ado2gh_migration_scripts/MigrationWithoutAssigningTeam/checkAfterMigration/orgRepositories.csv'
+path =f"{'/'.join(os.path.dirname(__file__).split('/')[0:-2])}"+'/ado2gh_migration_scripts/MigrationWithoutAssigningTeam/checkAfterMigration/orgRepositories.csv'
 
 repo_under_organization = pd.read_csv(path)
 repo_names = repo_under_organization['full_name'].to_numpy()
@@ -46,6 +46,14 @@ def get_lang_in_repositories(gh_pat):
         logging.error(error_msg)
 
 
+def plot_tabular_data(df):
+    plt.figure(figsize=(12, 8))
+    plt.axis('off')
+    plt.table(cellText=df.values, colLabels=df.columns, loc='center', cellLoc='center')
+    plt.savefig(f'{c_dir}/tabular_data.pdf', format='pdf')  # Save as PDF
+    plt.savefig(f'{c_dir}/tabular_data.png', format='png')  # Save as PNG
+    plt.show()
+
 if __name__ == "__main__" :
 
     # GitHub Personal Access Token
@@ -54,3 +62,4 @@ if __name__ == "__main__" :
     org_name = "utesta"
     df = get_lang_in_repositories(gh_pat)
     df.to_csv(f'{c_dir}/laguageStatusGitHub.csv',index=False)
+    plot_tabular_data(df)

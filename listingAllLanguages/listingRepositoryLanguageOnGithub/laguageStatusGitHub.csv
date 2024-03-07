@@ -1,8 +1,220 @@
 repo_name,languages_used
-utesta/demo_arm_template_deploy,
-utesta/The-Azure-Dev-Ops,Java
-utesta/testazuredevops,"C#, JavaScript, HTML, CSS, ASP.NET"
-utesta/demo_flatris_game,"JavaScript, Shell, CSS"
-utesta/Dual-Axis-Illusion,JavaScript
-utesta/The-Mcguffin,
-utesta/mainRepo_for_test_purpose,
+freeCodeCamp/.github,
+freeCodeCamp/100DaysOfCode-discord-bot,"TypeScript, Shell"
+freeCodeCamp/100DaysOfCode-twitter-bot,"JavaScript, Procfile"
+freeCodeCamp/1Aug2015GameDev,"JavaScript, HTML, CSS"
+freeCodeCamp/1password-teams-open-source,
+freeCodeCamp/2016-new-coder-survey,"R, MATLAB, CSS, JavaScript, HTML"
+freeCodeCamp/2017-new-coder-survey,"R, Makefile"
+freeCodeCamp/2018-jamstack-hackathon,
+freeCodeCamp/2018-new-coder-survey,R
+freeCodeCamp/2018-online-jamstack-hackathon,
+freeCodeCamp/2021-new-coder-survey,
+freeCodeCamp/about,"CSS, HTML"
+freeCodeCamp/actual-react-router-bootstrap,JavaScript
+freeCodeCamp/arcade-mode,"JavaScript, CSS, Perl, HTML, Shell"
+freeCodeCamp/assets,
+freeCodeCamp/auth0-config,"HTML, JavaScript"
+freeCodeCamp/authors-landing,"TypeScript, CSS, Dockerfile, JavaScript"
+freeCodeCamp/back-end-development-and-apis,"JavaScript, HTML, Shell, CSS, Dockerfile"
+freeCodeCamp/boilerplate-advancednode,"JavaScript, Pug, CSS"
+freeCodeCamp/boilerplate-arithmetic-formatter,Python
+freeCodeCamp/boilerplate-bcrypt,JavaScript
+freeCodeCamp/boilerplate-book-recommendation-engine,Jupyter Notebook
+freeCodeCamp/boilerplate-budget-app,Python
+freeCodeCamp/boilerplate-cat-and-dog-image-classifier,Jupyter Notebook
+freeCodeCamp/boilerplate-demographic-data-analyzer,Python
+freeCodeCamp/boilerplate-express,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-infosec,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-linear-regression-health-costs-calculator,Jupyter Notebook
+freeCodeCamp/boilerplate-mean-variance-standard-deviation-calculator,Python
+freeCodeCamp/boilerplate-medical-data-visualizer,Python
+freeCodeCamp/boilerplate-mochachai,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-mongomongoose,"JavaScript, HTML"
+freeCodeCamp/boilerplate-neural-network-sms-text-classifier,Jupyter Notebook
+freeCodeCamp/boilerplate-npm,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-page-view-time-series-visualizer,Python
+freeCodeCamp/boilerplate-polygon-area-calculator,Python
+freeCodeCamp/boilerplate-port-scanner,Python
+freeCodeCamp/boilerplate-probability-calculator,Python
+freeCodeCamp/boilerplate-project-american-british-english-translator,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-project-exercisetracker,"HTML, CSS, JavaScript"
+freeCodeCamp/boilerplate-project-filemetadata,"HTML, CSS, JavaScript"
+freeCodeCamp/boilerplate-project-headerparser,"HTML, JavaScript, CSS"
+freeCodeCamp/boilerplate-project-issuetracker,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-project-library,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-project-messageboard,"HTML, JavaScript, CSS"
+freeCodeCamp/boilerplate-project-metricimpconverter,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-project-secure-real-time-multiplayer-game,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-project-stockchecker,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-project-sudoku-solver,"JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-project-timestamp,"HTML, JavaScript, CSS"
+freeCodeCamp/boilerplate-project-urlshortener,"HTML, JavaScript, CSS"
+freeCodeCamp/boilerplate-rock-paper-scissors,Python
+freeCodeCamp/boilerplate-sea-level-predictor,Python
+freeCodeCamp/boilerplate-SHA-1-password-cracker,Python
+freeCodeCamp/boilerplate-socialauth,"Shell, JavaScript, HTML, CSS"
+freeCodeCamp/boilerplate-socketio,"JavaScript, Shell, HTML, CSS"
+freeCodeCamp/boilerplate-time-calculator,Python
+freeCodeCamp/camper-gh-bot,"JavaScript, HTML"
+freeCodeCamp/camper-gitter-bot,"JavaScript, Shell"
+freeCodeCamp/camper-probot,JavaScript
+freeCodeCamp/caption-dashboard,"JavaScript, HTML, CSS"
+freeCodeCamp/catphotoapp,"JavaScript, HTML, CSS"
+freeCodeCamp/cdn,"Python, HTML, CSS"
+freeCodeCamp/chapter,"TypeScript, Shell, JavaScript, Dockerfile, CSS"
+freeCodeCamp/chat,"HTML, JavaScript"
+freeCodeCamp/chat-nginx-config,
+freeCodeCamp/chinese,Shell
+freeCodeCamp/classroom,"JavaScript, Shell, CSS, Dockerfile"
+freeCodeCamp/classroom-mode-archived,"JavaScript, HTML, CSS"
+freeCodeCamp/client-config,HTML
+freeCodeCamp/code-of-conduct,"CSS, HTML"
+freeCodeCamp/CodeAlly-CodeRoad-freeCodeCamp,
+freeCodeCamp/coderadio-client,"JavaScript, CSS, HTML, Shell"
+freeCodeCamp/COM1000,"JavaScript, HTML, CSS"
+freeCodeCamp/conference-for-good,"TypeScript, HTML, JavaScript, CSS"
+freeCodeCamp/courses-vscode-extension,"TypeScript, JavaScript"
+freeCodeCamp/crowdin-action,TypeScript
+freeCodeCamp/crowdin-config,JavaScript
+freeCodeCamp/crowdin-glossaries,"TypeScript, Shell"
+freeCodeCamp/curriculum,"JavaScript, CSS"
+freeCodeCamp/curriculum-helpers,"TypeScript, CSS, Python, JavaScript, Handlebars"
+freeCodeCamp/CurriculumExpansion,"JavaScript, HTML, CSS, Python, TypeScript, SCSS, Pug"
+freeCodeCamp/cz-freecodecamp,JavaScript
+freeCodeCamp/data-science-notebooks,Jupyter Notebook
+freeCodeCamp/demo-projects,"JavaScript, HTML, CSS, Pug, EJS, Dockerfile, Shell"
+freeCodeCamp/demo-projects-nginx-config,
+freeCodeCamp/design-style-guide,"HTML, CSS"
+freeCodeCamp/devdocs,"Ruby, JavaScript, SCSS, HTML, CSS, Dockerfile, Procfile"
+freeCodeCamp/devdocs-nginx-config,
+freeCodeCamp/Developer_Quiz_Site,"TypeScript, CSS, HTML, Dockerfile, Shell"
+freeCodeCamp/devtools,TypeScript
+freeCodeCamp/discord-bot,TypeScript
+freeCodeCamp/discourse-meta,
+freeCodeCamp/dns,"Makefile, Shell"
+freeCodeCamp/donate,
+freeCodeCamp/donate-page,"CSS, HTML, JavaScript"
+freeCodeCamp/donations-for-good,"JavaScript, CSS"
+freeCodeCamp/error-pages,"HTML, CSS"
+freeCodeCamp/eslint-config-freecodecamp,JavaScript
+freeCodeCamp/euler-rust,"JavaScript, Rust, Dockerfile"
+freeCodeCamp/event-calendar,"TypeScript, Dockerfile, JavaScript, CSS"
+freeCodeCamp/events,"CSS, JavaScript"
+freeCodeCamp/fastify-jwt-authz,JavaScript
+freeCodeCamp/fcc-express-bground-pkg,JavaScript
+freeCodeCamp/fcc-expressworks,Shell
+freeCodeCamp/fcc-github-syncing-service,JavaScript
+freeCodeCamp/fcc-vagrant,"Ruby, Puppet, HTML, Pascal"
+freeCodeCamp/forum-banner,"HTML, SCSS"
+freeCodeCamp/forum-theme,"SCSS, HTML"
+freeCodeCamp/forum-users-nav,HTML
+freeCodeCamp/freeCatPhotoApp,HTML
+freeCodeCamp/freeCodeCamp,"TypeScript, JavaScript, CSS, Dockerfile, MDX, EJS, HTML, Shell, Less"
+freeCodeCamp/freecodecamp-dark-vscode-theme,
+freeCodeCamp/freeCodeCamp-legacy,"JavaScript, HTML, CSS"
+freeCodeCamp/freeCodeCamp.github.io,
+freeCodeCamp/freeCodeCampOS,"JavaScript, TypeScript, Rust, CSS, Shell, HTML, Dockerfile"
+freeCodeCamp/FreeCodeCampTriviaQuiz,JavaScript
+freeCodeCamp/gatsby-source-filesystem,JavaScript
+freeCodeCamp/ghost-config,JavaScript
+freeCodeCamp/ghost-workaround-theme,"CSS, Handlebars, JavaScript"
+freeCodeCamp/gitpod-images,"JavaScript, Dockerfile, Makefile, HCL"
+freeCodeCamp/gitter-history,
+freeCodeCamp/gsoc,
+freeCodeCamp/guide,
+freeCodeCamp/hackathon-leaderboard,"JavaScript, HTML, CSS, Dockerfile, Shell"
+freeCodeCamp/home,"HTML, CSS, JavaScript"
+freeCodeCamp/hour-of-code,"JavaScript, CSS, HTML"
+freeCodeCamp/how-to-contribute-to-open-source,Ruby
+freeCodeCamp/infra,"HCL, Shell, Jinja, Makefile, HTML, Dockerfile"
+freeCodeCamp/jamstack-hackathon,"CSS, HTML"
+freeCodeCamp/JulyGameDev,"JavaScript, HTML, CSS"
+freeCodeCamp/league-for-good,"JavaScript, HTML, CSS"
+freeCodeCamp/learn,"JavaScript, CSS"
+freeCodeCamp/learn-advanced-bash-by-building-a-kitty-ipsum-translator,Shell
+freeCodeCamp/learn-bash-and-sql-by-building-a-bike-rental-shop,Shell
+freeCodeCamp/learn-bash-by-building-a-boilerplate,Shell
+freeCodeCamp/learn-bash-scripting-by-building-five-programs,Shell
+freeCodeCamp/learn-celestial-bodies-database,Shell
+freeCodeCamp/learn-git-by-building-an-sql-reference-object,Shell
+freeCodeCamp/learn-nano-by-building-a-castle,Shell
+freeCodeCamp/learn-number-guessing-game,Shell
+freeCodeCamp/learn-periodic-table-database,Shell
+freeCodeCamp/learn-relational-databases-by-building-a-mario-database,Shell
+freeCodeCamp/learn-salon-appointment-scheduler,Shell
+freeCodeCamp/learn-sql-by-building-a-student-database-part-1,Shell
+freeCodeCamp/learn-sql-by-building-a-student-database-part-2,Shell
+freeCodeCamp/learn-world-cup-database,Shell
+freeCodeCamp/LearnToCodeRPG,"Ren'Py, HTML, Python, CSS, JavaScript, Shell"
+freeCodeCamp/loop-protect,JavaScript
+freeCodeCamp/loopback-component-passport,JavaScript
+freeCodeCamp/mail-for-good,"JavaScript, CSS, Python, HTML, Dockerfile"
+freeCodeCamp/maintenance-page,"CSS, HTML"
+freeCodeCamp/massification,JavaScript
+freeCodeCamp/math,"Python, Jupyter Notebook"
+freeCodeCamp/math-for-programmers-prototype,"JavaScript, CSS, HTML"
+freeCodeCamp/meeting-for-good,"JavaScript, CSS, HTML"
+freeCodeCamp/mobile,"Dart, TypeScript, Ruby, JavaScript, Swift, Dockerfile, Kotlin, Shell, Objective-C"
+freeCodeCamp/mongodb-statsd,JavaScript
+freeCodeCamp/multiple-choice-questions,"JavaScript, CSS, HTML"
+freeCodeCamp/near-curriculum,"JavaScript, Shell, Dockerfile"
+freeCodeCamp/news,"JavaScript, Nunjucks, CSS, HTML, Makefile, Dockerfile, Shell"
+freeCodeCamp/news-legacy,"CSS, JavaScript"
+freeCodeCamp/news-theme,"Handlebars, CSS, JavaScript"
+freeCodeCamp/news-theme-archive,"HTML, CSS, JavaScript"
+freeCodeCamp/news-to-mobiledoc,JavaScript
+freeCodeCamp/nginx-config,
+freeCodeCamp/open-api,"JavaScript, Shell"
+freeCodeCamp/open-data,"HTML, CSS"
+freeCodeCamp/open-source-for-good-directory,"JavaScript, CSS, HTML, Shell"
+freeCodeCamp/osfg-dir-server,JavaScript
+freeCodeCamp/outreach-for-good,"JavaScript, CSS, Python, HTML, Ruby"
+freeCodeCamp/pantry-for-good,"JavaScript, HCL, CSS, HTML, Dockerfile"
+freeCodeCamp/persist,"JavaScript, CSS, Ruby, HTML"
+freeCodeCamp/PhoneIDE,"Dart, HTML, Ruby, Swift, Kotlin, Objective-C"
+freeCodeCamp/pm2-pager,JavaScript
+freeCodeCamp/privacy-policy,"CSS, HTML"
+freeCodeCamp/ProjectReferenceData,
+freeCodeCamp/promtail-config,
+freeCodeCamp/publish,"JavaScript, TypeScript, Dockerfile, HTML, CSS, Shell"
+freeCodeCamp/python-coding-challenges,"Python, JavaScript, CSS, HTML"
+freeCodeCamp/rdb-alpha,Dockerfile
+freeCodeCamp/react-bootstrap,"JavaScript, CSS"
+freeCodeCamp/react-calendar-heatmap,"JavaScript, CSS"
+freeCodeCamp/react-freecodecamp-search,"JavaScript, HTML"
+freeCodeCamp/react-notification,"JavaScript, TypeScript, Shell"
+freeCodeCamp/redirects,Shell
+freeCodeCamp/renovate-config,
+freeCodeCamp/rocketchat-bot,TypeScript
+freeCodeCamp/Rust-In-Replit,"JavaScript, Nix, Shell, Rust"
+freeCodeCamp/scrapepark.org,"HTML, CSS, SCSS"
+freeCodeCamp/scripts,"TypeScript, JavaScript"
+freeCodeCamp/search,"JavaScript, HTML"
+freeCodeCamp/search-assets,"JavaScript, CSS, HTML"
+freeCodeCamp/search-indexer,"JavaScript, Shell"
+freeCodeCamp/sendgrid-email-blast,"TypeScript, Shell"
+freeCodeCamp/ses-email-blast,TypeScript
+freeCodeCamp/shop,"CSS, HTML"
+freeCodeCamp/solana-curriculum,"TypeScript, JavaScript, Rust, CSS, HTML, Shell, Dockerfile"
+freeCodeCamp/stock-price-checker-proxy,"JavaScript, HTML, CSS, Shell"
+freeCodeCamp/store.js,"JavaScript, Shell, Makefile"
+freeCodeCamp/strip-comments,"TypeScript, JavaScript, HTML, Shell"
+freeCodeCamp/study-group-directory,"CSS, HTML, JavaScript"
+freeCodeCamp/subtitle-translations,"JavaScript, Shell"
+freeCodeCamp/support,"CSS, HTML"
+freeCodeCamp/template,
+freeCodeCamp/terms-of-service,"CSS, HTML"
+freeCodeCamp/terraform-cdk-experiments,"TypeScript, JavaScript"
+freeCodeCamp/terraform-github-runners,"HCL, Makefile"
+freeCodeCamp/testable-projects-fcc,"JavaScript, HTML, CSS, SCSS, Sass, Pug"
+freeCodeCamp/tools,"JavaScript, HTML, CSS, Shell"
+freeCodeCamp/top-contributor-tool,"TypeScript, Shell"
+freeCodeCamp/TranslationExpansion,
+freeCodeCamp/videos-translation,
+freeCodeCamp/web3-curriculum,"JavaScript, Rust, CSS, Shell, HTML, Dockerfile"
+freeCodeCamp/web3-site,"TypeScript, CSS, HTML"
+freeCodeCamp/wiki,"JavaScript, Shell"
+freeCodeCamp/wiki-generator,"JavaScript, CSS"
+freeCodeCamp/write-nginx-config,
+freeCodeCamp/ZiplineStatusChecker,"JavaScript, HTML, Shell, CSS, Perl"

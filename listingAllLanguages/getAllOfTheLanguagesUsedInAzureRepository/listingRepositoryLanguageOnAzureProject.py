@@ -2,7 +2,7 @@ import pandas as pd
 import os 
 import requests 
 import logging 
-
+import matplotlib.pyplot as plt
 ## get the current directory
 c_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -64,7 +64,14 @@ def getLanguagesOnEachProject(organization_name,projects,headers,auth) :
         error_msg = f'Error occurred while fetching language details : {e}'
         print(error_msg)
         logging.error(error_msg)
-
+def plot_languages(df_chunk):
+    for idx, df in enumerate(df_chunk):
+        plt.figure(figsize=(19.2, 10.8), dpi=100)
+        plt.axis('off')
+        plt.table(cellText=df.values, colLabels=df.columns, loc='center', cellLoc='center')
+        plt.savefig(f'{c_dir}/tabular_data{idx}.pdf', format='pdf',dpi=300)  # Save as PDF
+        plt.savefig(f'{c_dir}/tabular_data{idx}.png', format='png',dpi=300)  # Save as PNG
+        plt.show()
 if __name__ == "__main__":
     ado_pat = os.environ.get("ADO_PAT")
     organization_name = "udemydevopscourse" 
@@ -74,3 +81,6 @@ if __name__ == "__main__":
     project_names = getProjects(organization_name,headers,auth)
     df = getLanguagesOnEachProject(organization_name,project_names,headers,auth)
     df.to_csv(f'{c_dir}/languageStatusAzure.csv',index=False)
+        # Split dataframe into chunks of 10 rows each
+    df_chunks = [df[i:i+10] for i in range(0, len(df), 10)]
+    plot_languages(df_chunks)
