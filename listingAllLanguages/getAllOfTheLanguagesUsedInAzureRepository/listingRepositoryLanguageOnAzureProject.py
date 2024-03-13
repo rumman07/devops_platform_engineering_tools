@@ -26,12 +26,13 @@ def getProjects(organization_name,headers,auth) :
     url = f"https://dev.azure.com/{organization_name}/_apis/projects?api-version=7.1-preview.4"
     try :
         response = requests.get(url, headers=headers, auth=auth)
+        results = response.json()
         if response.status_code!=200 and "NotFound" in results['typeName'] :
             error_msg = f'Error occurred while fetching projects : {organization_name}'
             print(error_msg)
             logging.error(error_msg)
             return []
-        results = response.json()
+        
         project_names = []
         ## storing the project names in our list project_names
         for i in range(len(results['value'])) :
