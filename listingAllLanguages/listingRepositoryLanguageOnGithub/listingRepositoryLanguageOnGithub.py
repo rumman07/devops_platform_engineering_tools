@@ -10,7 +10,8 @@ c_dir = os.path.dirname(os.path.realpath(__file__))
 if not os.path.exists(f'{c_dir}/error.log'):
     with open(f'{c_dir}/error.log', 'w'):
         pass
-
+## configure logging file
+logging.basicConfig(filename=f'{c_dir}/error.log',level=logging.ERROR,format='%(asctime)s - %(levelname)s - %(message)s')
 def get_user_repositories(gh_pat,org_name):
     try :
         ## page no
@@ -47,8 +48,7 @@ def get_user_repositories(gh_pat,org_name):
         error_msg = f'Error occurred while fetching data : {e}'
         print(error_msg)
         logging.error(error_msg)
-## configure logging file
-logging.basicConfig(filename=f'{c_dir}/error.log',level=logging.ERROR,format='%(asctime)s - %(levelname)s - %(message)s')
+
 def get_lang_in_repositories(gh_pat,repo_names):
     try :
         # request header
