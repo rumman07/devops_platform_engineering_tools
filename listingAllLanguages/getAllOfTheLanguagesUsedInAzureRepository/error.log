@@ -1,0 +1,1 @@
+2024-03-07 21:06:42,288 - ERROR - Error occurred while fetching projects : ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
