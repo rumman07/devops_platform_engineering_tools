@@ -52,7 +52,7 @@ def get_user_repositories(gh_pat,org_name):
 def get_lang_in_repositories(gh_pat,repo_names):
     try :
         # request header
-        columns = ['repo_name','languages_used']
+        columns = ['repo_name','language_used']
         df = pd.DataFrame()
         headers = {
             "Accept": "application/vnd.github+json",
@@ -65,10 +65,10 @@ def get_lang_in_repositories(gh_pat,repo_names):
             # getting the response into json format
             results = response.json()
             keys = list(results.keys())
-            keys_str = ', '.join(keys)
-            data = [[repo_name, keys_str]]
-            n_df = pd.DataFrame(data, columns=columns)
-            df = pd.concat([df,n_df],axis=0,ignore_index=True)
+            for lang in keys :
+                data = [[repo_name, lang]]
+                n_df = pd.DataFrame(data, columns=columns)
+                df = pd.concat([df,n_df],axis=0,ignore_index=True)
         return df
     except requests.exceptions.RequestException as e :
         error_msg = f'Error occurred while fetching data : {e}'
