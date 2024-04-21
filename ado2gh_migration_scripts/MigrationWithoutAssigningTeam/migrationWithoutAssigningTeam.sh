@@ -45,8 +45,8 @@ tail -n +2 "$projects" | while IFS=',' read -r project_name_space project_name r
             echo "$response"
             status=$(curl -L -u "'':$ADO_PAT"\
              -X PATCH\
-             -H "Content-Type: application/json" --write-out "%{http_code}\n" --silent --output /dev/null \
-	     https://dev.azure.com/$azure_org/$project_name/_apis/git/repositories/$repository_id?api-version=7.1-preview.1\
+             -H "Content-Type: application/json" --write-out "%{http_code}\n" --silent --output /dev/null https://dev.azure.com/$azure_org/$project_name/_apis/git/repositories/$repository_id?api-\
+             version=7.1-preview.1\
 	     -d '{"isDisabled": true}')
 	    if [ $status -eq 200 ];then
             	echo "Disabling $project_name_space was Successfull"
