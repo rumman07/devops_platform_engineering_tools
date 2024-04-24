@@ -6,8 +6,8 @@ python3 getProject_Repo_Name.py
 # environment variables
 
 ## manuall add er khetre terminal e kore nibo
-export GH_PAT="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"
-export ADO_PAT="c77kb35dygobrvqcxybqeyob7w24yetmlu2r6fj7omdkme63reja"
+export GH_PAT="git_pat_here"
+export ADO_PAT="azure_pat_here"
 
 ## connect with your github account
 gh auth login 
@@ -26,7 +26,7 @@ if [ ! -f "$projects" ]; then
 fi
 
 ## github organization name
-git_org="u19test"
+git_org="testRez1"
 
 
 ## azure organization
