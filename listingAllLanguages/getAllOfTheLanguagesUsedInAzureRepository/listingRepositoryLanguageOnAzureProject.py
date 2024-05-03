@@ -50,16 +50,14 @@ def getLanguagesOnEachProject(organization_name,projects,headers,auth) :
             response = requests.get(url, headers=headers, auth=auth)
             results = response.json()
             for repo_hist in results['repositoryLanguageAnalytics'] :
-                languages=[]
                 repo_name = repo_hist['name']
                 for lang in repo_hist['languageBreakdown'] :
                     lang_name = lang['name']
                     if lang_name == 'Unknown' :
                         continue
-                    languages.append(lang_name)
-                languages =','.join(languages)
-                n_df  = pd.DataFrame(data=[[project_name,repo_name,languages]],columns=['project_name','repo_name','languages'])
-                df = pd.concat([df,n_df],axis=0,ignore_index=True)
+                    n_df  = pd.DataFrame(data=[[project_name,repo_name,lang_name]],columns=['project_name','repo_name','language_used'])
+                    df = pd.concat([df,n_df],axis=0,ignore_index=True)
+
         return df
     except requests.exceptions.RequestException as e :
         error_msg = f'Error occurred while fetching language details : {e}'

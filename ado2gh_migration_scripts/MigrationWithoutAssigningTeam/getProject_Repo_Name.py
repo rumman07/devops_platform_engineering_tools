@@ -1,6 +1,6 @@
 import pandas as pd 
 
-df = pd.read_csv('latestCommitInfo.csv')
+df = pd.read_csv('./azure_repo_list[updated].csv')
 project_names = list(df['project_name'])
 for i in range(len(project_names)):
   project_names[i] = project_names[i].replace(' ','%20')
