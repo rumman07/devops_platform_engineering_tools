@@ -82,8 +82,6 @@ def listAllBranchByRepositories( GH_PAT, REPO_NAME):
 if __name__ == "__main__" :
 
     GH_PAT = os.environ.get("GH_PAT")
-
-    ORG_NAME = "freeCodeCamp"
     
     repoNamesDf = pd.read_csv("./repo-list.csv")
 

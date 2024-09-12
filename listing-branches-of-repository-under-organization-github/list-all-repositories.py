@@ -84,6 +84,6 @@ if __name__ == "__main__" :
 
     GH_PAT = os.environ.get("GH_PAT")
 
-    ORG_NAME = "freeCodeCamp"
+    ORG_NAME = os.environ.get("ORG_NAME")
 
     listAllRepositories(GH_PAT,ORG_NAME)
