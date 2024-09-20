@@ -1,6 +1,6 @@
 
 
-export GH_PAT="github-access-token-goes-here"
+export GH_PAT="give-your-github-access-token-here"
 export ORG_NAME="organization-name-goes-here"
 
 # first execute this script

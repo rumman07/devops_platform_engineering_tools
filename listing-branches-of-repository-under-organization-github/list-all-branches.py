@@ -62,7 +62,8 @@ def listAllBranchByRepositories( GH_PAT, REPO_NAME):
             for branch in results:
                 repoBranches.append(
                   {
-                    "repostiory_name": REPO_NAME,
+                    "organization_name": REPO_NAME.split("/")[0],
+                    "repostiory_name": REPO_NAME.split("/")[1],
                     "branch_name": branch['name'],
                     "is_protected": branch['protected'],
                     "last_commit_link": branch['commit']['url'],

@@ -61,7 +61,7 @@ def listAllRepositories( GH_PAT, ORG_NAME):
 
             for repository in results:
                 repoNames.append(
-                    repository['full_name']
+                     repository['full_name']
                 )
             i = i+1
             time.sleep(3)
