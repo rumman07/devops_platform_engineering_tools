@@ -1,6 +1,15 @@
 #!/bin/bash
 
 
+# Install Git LFS if not already installed on you localmachine
+## have to manually install on windows
+if ! command -v git-lfs &> /dev/null; then
+    echo "Git LFS not found. Installing..."
+    # Add installation command for your system, e.g.:
+    sudo apt-get install git-lfs  # For Ubuntu/Debian
+    # brew install git-lfs  # For macOS with Homebrew
+fi
+
 python3 getProject_Repo_Name.py
 ## to use gei and ado2gh firstly you have to set
 # environment variables
@@ -32,17 +41,51 @@ git_org="testRez1"
 ## azure organization
 azure_org="udemydevopscourse"
 
+
+## to initialize git lfs to your github repository
+# initialize_git_lfs() {
+#     local repo_name=$1
+#     local temp_dir=$(mktemp -d)
+#     local size_threshold=$((100 * 1024 * 1024))  # 100MB in bytes
+
+#     git clone "https://github.com/$GIT_ORG/$repo_name.git" "$temp_dir"
+#     cd "$temp_dir"
+
+#     git lfs install
+
+#     # Find and track all files larger than 100MB
+#     find . -type f -size +${size_threshold}c -print0 | while IFS= read -r -d '' file; do
+#         relative_path=$(realpath --relative-to=. "$file")
+#         git lfs track "$relative_path"
+#     done
+
+#     # Commit and push changes if any files were tracked
+#     if [[ -n $(git status -s) ]]; then
+#         git add .gitattributes
+#         git commit -m "Initialize Git LFS for files larger than 100MB"
+#         git push origin main
+#     fi
+
+#     cd - > /dev/null
+#     rm -rf "$temp_dir"
+# }
+
 tail -n +2 "$projects" | while IFS=',' read -r project_name_space project_name repo_name repository_id; do
     repo_response=$(gh api -X GET "/repos/$git_org/$repo_name")
     not_found=$(echo "$repo_response" | jq -r '.message')
     if [ "$not_found" == "Not Found" ]; then
         echo "Not Found Error Means Here That The Repository Was Not Migrated Before"
         echo "Started Migrating"
-        response=$(gh ado2gh migrate-repo --ado-org "$azure_org" --ado-team-project "$project_name_space" --ado-repo "$repo_name" --github-org "$git_org" --github-repo "$repo_name")
+        ## added the flag --git-lfs at the end of below line
+        response=$(gh ado2gh migrate-repo --ado-org "$azure_org" --ado-team-project "$project_name_space" --ado-repo "$repo_name" --github-org "$git_org" --github-repo "$repo_name" --git-lfs)
             # Check the exit status of the previous command
         if [ $?==0 ];then
             echo "Migration successful"
             echo "$response"
+
+            # Initialize Git LFS for the newly migrated repository
+            ## calling the initialize_git_lfs function with passing repo_name
+            # initialize_git_lfs "$repo_name"
             status=$(curl -L -u "'':$ADO_PAT"\
              -X PATCH\
              -H "Content-Type: application/json" --write-out "%{http_code}\n" --silent --output /dev/null https://dev.azure.com/$azure_org/$project_name/_apis/git/repositories/$repository_id?api-\
