@@ -3,12 +3,12 @@
 
 # Install Git LFS if not already installed on you localmachine
 ## have to manually install on windows
-if ! command -v git-lfs &> /dev/null; then
-    echo "Git LFS not found. Installing..."
-    # Add installation command for your system, e.g.:
-    sudo apt-get install git-lfs  # For Ubuntu/Debian
-    # brew install git-lfs  # For macOS with Homebrew
-fi
+# if ! command -v git-lfs &> /dev/null; then
+#     echo "Git LFS not found. Installing..."
+#     # Add installation command for your system, e.g.:
+#     sudo apt-get install git-lfs  # For Ubuntu/Debian
+#     # brew install git-lfs  # For macOS with Homebrew
+# fi
 
 python3 getProject_Repo_Name.py
 ## to use gei and ado2gh firstly you have to set
