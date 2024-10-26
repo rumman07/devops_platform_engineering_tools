@@ -101,10 +101,36 @@ def hasActivePullRequest(repo_name,repo_id,organization,project_name,headers,aut
         print(f'An Error Occurred: {str(e)}')
         logging.error(f'An Error Occurred: {str(e)}')
         return None
-    
+
+def getRepoSize(org_name, project_name, repo_id, repo_name,headers, auth):
+        url = f"https://dev.azure.com/{org_name}/{project_name}/_apis/git/repositories/{repo_id}/items?api-version=7.1&recursionLevel=Full&includeContentMetadata=true"
+        response = requests.get(url,headers=headers,auth=auth)
+        size = int(0)
+        if response.status_code == 200 :
+            results = response.json()
+            for i in range(len(results['value'])):
+                object_id = results['value'][i]['objectId']
+                object_type = results['value'][i]['gitObjectType']
+                if object_type == "blob" :
+                    url_item = f'https://dev.azure.com/{org_name}/{project_name}/_apis/git/repositories/{repo_id}/blobs/{object_id}?$format=json&api-version=7.1'
+                    res_item = requests.get(url_item,headers=headers,auth=auth)
+                    if res_item.status_code == 200 :
+                        results_item = res_item.json()
+                        size = size + int(results_item['size'])
+                    else :
+                        print(f"Request failed with status code: {response.status_code} for Project {project_name} Repository_Name {repo_name} File Info not found")
+                        logging.error(f"Request failed with status code: {response.status_code} for Project {project_name} Repository_Name {repo_name} File Info not found")
+                    time.sleep(3)
+                
+        else :
+            print(f"Request failed with status code: {response.status_code} for Project {project_name} Repository_Name {repo_name}")
+            logging.error(f"Request failed with status code: {response.status_code} for Project {project_name} Repository_Name {repo_name}")
+        time.sleep(5)
+        print(f"[info] This repository {repo_name} has total {size} bytes of data")
+        return size
 ## for getting the latest commit info from a repository based on main or master branch
 def getRepoDetailedInfo(repositories_info, organization, headers, auth) :
-    column_names = ['project_name','repository_name','branch_name',
+    column_names = ['project_name','repository_name','repository_size_in_mb','branch_name',
                     'repository_id','last_commit_id','haveActivePullRequests',
                     'committer_name','last_commit_date','comment','last_commit_link']
     df = pd.DataFrame()
@@ -114,7 +140,7 @@ def getRepoDetailedInfo(repositories_info, organization, headers, auth) :
             repo_id = repo_info['repo_id']
             repo_name = repo_info['repo_name']
             response = hasActivePullRequest(repo_name,repo_id,organization,project_name,headers,auth)
-            # this condition looks wierd but is simply means that repo has the active pull or not
+            repository_size = round(getRepoSize(organization, project_name, repo_id, repo_name, headers, auth)*0.00000095367432, 4)
             if response == True or response == False :
                 # for main branch
                 isActive = response
@@ -134,7 +160,7 @@ def getRepoDetailedInfo(repositories_info, organization, headers, auth) :
                     commitDate = pd.to_datetime(commit_info.get('committer', {}).get('date', ''))
                     comment = commit_info.get('comment', '')
                     commitURL = commit_info.get('url', '')
-                    data = [project_name,repo_name,branch_name,repo_id,
+                    data = [project_name,repo_name,repository_size,branch_name,repo_id,
                             commitId,isActive,committerName,commitDate,
                             comment,commitURL]
                     n_df = pd.DataFrame([data],columns=column_names)
@@ -160,7 +186,7 @@ def getRepoDetailedInfo(repositories_info, organization, headers, auth) :
                         commitDate = pd.to_datetime(commit_info.get('committer', {}).get('date', ''))
                         comment = commit_info.get('comment', '')
                         commitURL = commit_info.get('url', '')
-                        data = [project_name,repo_name,branch_name,repo_id,
+                        data = [project_name,repo_name,repository_size,branch_name,repo_id,
                                 commitId,isActive,committerName,commitDate,
                                 comment,commitURL]
                         n_df = pd.DataFrame([data],columns=column_names)
@@ -207,6 +233,7 @@ if __name__ == '__main__' :
            repo_detailed_info = repo_detailed_info.sort_values(by="last_commit_date",ascending=False)
            # saving it in a csv format file to be understandable
            repo_detailed_info.to_csv(f'{c_dir}/azure_repo_list[updated].csv',index=False)
+           print("Successfully Dumped The Informations of each Repositories into the azure_repo_list[updated].csv")
         else :
             print(f'Not Found Any Repositories for Any of The Projects On this organization {organization}')
             logging.error(f'Not Found Any Repositories for Any of The Projects On this organization {organization}')
