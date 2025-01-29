@@ -1,8 +1,5 @@
 #!/bin/sh
 
-## need to export the GH_PAT 
-export GH_PAT="<your github personal access token>"
-
 # distribution list for sending mail
 MAILUSERS='ahmedabir.rez@gmail.com u1904117@student.cuet.ac.bd'
 
