@@ -4,6 +4,7 @@ import numpy as np
 import sys
 import os
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 import logging
 import calendar
 import time
@@ -28,8 +29,8 @@ def get_user_commits(config, user):
     url = f"{BASE_URL}/repos/{config['ORG_NAME']}/{config['REPO_NAME']}/commits"
     params = {
         "author": user,
-        "since": SINCE,
-        "until": UNTIL
+        "since": config["SINCE"],
+        "until": config["UNTIL"]
     }
 
     print('[INFO] Fetching commits for user:', user)
@@ -87,6 +88,10 @@ if __name__ == "__main__":
     MONTH = sys.argv[2]
     # creating datetime object
     now = datetime.strptime(MONTH, '%Y-%m')
+
+    # get the Two months earlier month in datetime format
+    two_months_earlier_month = now - relativedelta(months=2)
+
     # Split the string into a list 
     usernames = usernames_.split()
 
@@ -104,7 +109,7 @@ if __name__ == "__main__":
     
     # extracting the first day and last day of the current month
     _, last_day_of_month = calendar.monthrange(now.year, now.month)
-    SINCE = f"{MONTH}-01T00:00:00Z"
+    SINCE = f"{two_months_earlier_month}-01T00:00:00Z"
     UNTIL = f"{MONTH}-{last_day_of_month}T23:59:59Z"
 
     # config dictionary 
@@ -114,7 +119,8 @@ if __name__ == "__main__":
         "SINCE":SINCE,
         "UNTIL":UNTIL,
     }
-
+    print(SINCE)
+    print(UNTIL)
     with open(f'{c_dir}/repos.txt') as f:
         repos = f.read().splitlines()
 
