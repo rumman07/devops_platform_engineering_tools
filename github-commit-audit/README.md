@@ -10,36 +10,25 @@ pip3 install -r requirements.txt
 
 ## Step-2 Get your github personal access token
 
-Get your github personal access token and make sure you have placed the token into the script file `audit-gen-with-mailing.sh` at the specified place.
+Get your github personal access token and make sure you have export it into your OS env variable by `GH_PAT` name.
 
 ## Step-3 Add the emails to sent audit information
 
 Place the `emails` separated by space into the `MAILUSERS` variable in the script `audit-gen-with-mailing.sh`
 
-## Step-4 Add the usernames
-
-Place the `usernames` separated by space into the `USERNAMES` variable in the script `audit-gen-with-mailing.sh`
-
-## Step-5 Give the desired month
+## Step-4 Give the desired month
 
 Give the month you want to extract the audit. But it has to be in this format `YYYY-MM`. Example `2025-01`.
 
-
-## Step-6 Populate `repos.txt` file
-
-populate with the github `repository` **links** in the corresponding file `repos.txt`.
-
-## Step-7 Give Execute permission to `audit-gen-with-mailing.sh` script
+## Step-5 Give Execute permission to `audit-gen-with-mailing.sh` script
 
 ```bash
 chmod +x ./audit-gen-with-mailing.sh
 ```
-## Step-8 Execute the script
+## Step-6 Execute the script
 
 ```bash
 ./audit-gen-with-mailing.sh
 ```
 
-After a successful execution you will notice a `monthly-audit.csv` file in the current directory which will be sent over email to the distributions.
-
-**Note:** For demonstration I have used the `freeCodeCamp` organization to test my script. And for emailing I have configured `mailx` with **smtp.gmail.com**.
+After a successful execution you will notice some `<Team_Name>-<Month>-audit.csv` files in the current directory which will be sent over email to the distributions.

@@ -86,6 +86,8 @@ if __name__ == "__main__":
     usernames_ = sys.argv[1]
     # extracting the month
     MONTH = sys.argv[2]
+    # extracting the team_name
+    TEAM_NAME = sys.argv[3]
     # creating datetime object
     now = datetime.strptime(MONTH, '%Y-%m')
 
@@ -148,4 +150,4 @@ if __name__ == "__main__":
             continue
 
     # save the collected data in current directory
-    all_Df.to_csv(f'{c_dir}/monthly-audit.csv',index=False)
+    all_Df.to_csv(f'{c_dir}/{TEAM_NAME}-{MONTH}-audit.csv',index=False)

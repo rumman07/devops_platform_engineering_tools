@@ -1,3 +1,0 @@
-https://github.com/freeCodeCamp/freeCodeCamp.git
-https://github.com/freeCodeCamp/contribute.git
-https://github.com/freeCodeCamp/ui.git
