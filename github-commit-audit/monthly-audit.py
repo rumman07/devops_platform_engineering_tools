@@ -68,7 +68,7 @@ def audit_commits(config,users):
         try:
             commits = get_user_commits(config,user)
             df = pd.concat([df,commits],ignore_index=True)
-            time.sleep(2)
+            time.sleep(5)
         except Exception as e:
             logging.error(f"Error occurred while fetching commits for user {user} in repository {repo}: {e}")
             continue
@@ -78,8 +78,8 @@ def audit_commits(config,users):
 if __name__ == "__main__":
 
     # Get the usernames passed as an argument
-    if len(sys.argv) < 3:
-        print("[ERROR] program argument not provided expected two argument 1st USERNAMES 2nd MONTH")
+    if len(sys.argv) < 4:
+        print("[ERROR] program argument not provided expected three argument 1st USERNAMES 2nd MONTH 3rd TEAM_NAME")
         sys.exit(1)
 
     # extracting the username

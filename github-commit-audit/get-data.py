@@ -1,7 +1,10 @@
 import requests
+import sys
 import os
+from datetime import datetime
 import logging
-import datetime
+
+
 
 BASE_URL="http://10.100.6.201:8000/api/git"
 
@@ -102,11 +105,19 @@ def getRepoList(org_name):
         
 if __name__ == "__main__":
      
-     orgName = "" # give your orgName here
-     teamId = "" # give your teamId here
+    # Get the usernames passed as an argument
+    if len(sys.argv) < 3:
+        print("[ERROR] program argument not provided expected two argument 1st ORG_NAME 2nd TEAM_ID")
+        sys.exit(1)
 
-     if getRepoList(orgName) == True :
+    # extracting the orgName
+    orgName = sys.argv[1]
+    # extracting the teamId
+    teamId = sys.argv[2]
+    
+
+    if getRepoList(orgName) == True :
           print('[success] repos.txt file successfully populated with filtered data')
-     if getUserList(orgName, teamId) == True :
+    if getUserList(orgName, teamId) == True :
           print('[success] team_users.txt file successfully populated with users data')
 

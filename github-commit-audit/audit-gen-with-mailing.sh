@@ -1,12 +1,12 @@
 #!/bin/sh
 
-
-
 # distribution list for sending mail
 MAILUSERS='ahmedabir.rez@gmail.com u1904117@student.cuet.ac.bd'
 
+ORG_NAME="your-org-name"
+TEAM_ID="your-team-id"
 ## Getting the Data We Need To Process Further
-python3 get-data.py
+python3 get-data.py "$ORG_NAME" "$TEAM_ID"
 
 ## Now two files will be generated repos.txt and team_users.txt
 
@@ -16,12 +16,10 @@ MONTH='2025-01'
 ## Auditing Based on Team name and User Under the team and also in the filtered list of 
 ## repositories by Custom_Properties Audit Field
 
-
-
 while IFS='=' read -r TEAM_NAME USERNAMES; do
     # Remove leading/trailing whitespace from USERNAME
     USERNAMES=$(echo "$USERNAMES" | xargs)
-    # Call the Python script for auditing with TEAM_NAME and USERNAME as arguments
+    # Call the Python script for auditing with USERNAMES, MONTH, TEAM_NAME as arguments
     python3 monthly-audit.py "$USERNAMES" "$MONTH" "$TEAM_NAME"
 
     if [ $? -eq 0 ]; then
