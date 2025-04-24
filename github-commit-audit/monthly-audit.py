@@ -78,22 +78,35 @@ def audit_commits(config,users):
 if __name__ == "__main__":
 
     # Get the usernames passed as an argument
-    if len(sys.argv) < 4:
-        print("[ERROR] program argument not provided expected three argument 1st USERNAMES 2nd MONTH 3rd TEAM_NAME")
+    if len(sys.argv) < 7:
+        print("[ERROR] program argument not provided expected three argument 1st USERNAMES 2nd MONTH_START 3rd MONTH_END 4th TEAM_NAME 5th is_period 6th PERIOD")
         sys.exit(1)
 
     # extracting the username
     usernames_ = sys.argv[1]
-    # extracting the month
-    MONTH = sys.argv[2]
+    # extracting the start month
+    MONTH_START = sys.argv[2]
+    # extracting the end month
+    MONTH_END = sys.argv[3]
     # extracting the team_name
     TEAM_NAME = sys.argv[3]
+    # extracting the is_period
+    is_period = int(sys.argv[4])
+    # extracting the period
+    PERIOD = int(sys.argv[5])
+
+
     # creating datetime object
-    now = datetime.strptime(MONTH, '%Y-%m')
-
-    # get the Two months earlier month in datetime format
-    two_months_earlier_month = now - relativedelta(months=2)
-
+    start_month = datetime.strptime(MONTH_START, '%Y-%m')
+    if is_period == 1:
+        # get the end month in datetime format
+        end_month = start_month - relativedelta(months=PERIOD)
+        MONTH_END = end_month.strftime('%Y-%m')
+    else:
+        # get the end month in datetime format
+        end_month = datetime.strptime(MONTH_END, '%Y-%m')
+        MONTH_END = end_month.strftime('%Y-%m')
+    
     # Split the string into a list 
     usernames = usernames_.split()
 
@@ -110,9 +123,9 @@ if __name__ == "__main__":
             }
     
     # extracting the first day and last day of the current month
-    _, last_day_of_month = calendar.monthrange(now.year, now.month)
-    SINCE = f"{two_months_earlier_month}-01T00:00:00Z"
-    UNTIL = f"{MONTH}-{last_day_of_month}T23:59:59Z"
+    _, last_day_of_month = calendar.monthrange(end_month.year, end_month.month)
+    SINCE = f"{MONTH_START}-01T00:00:00Z"
+    UNTIL = f"{MONTH_END}-{last_day_of_month}T23:59:59Z"
 
     # config dictionary 
     config = {
@@ -128,7 +141,7 @@ if __name__ == "__main__":
 
     ## exported data collection
     all_Df = pd.DataFrame()
-
+    print(f'[INFO] Starting audit for {TEAM_NAME} from {MONTH_START} to {MONTH_END}')
     ## visiting all repositories to find out the contributions
     for repo in repos:
         try:    
@@ -150,4 +163,9 @@ if __name__ == "__main__":
             continue
 
     # save the collected data in current directory
-    all_Df.to_csv(f'{c_dir}/{TEAM_NAME}-{MONTH}-audit.csv',index=False)
+    with open(f'{c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.csv', 'w') as gen_file:
+        gen_file.write(f"Audit Report\n")
+        gen_file.write(f"Team: {TEAM_NAME}\n")
+        gen_file.write(f"Period: {MONTH_START} to {MONTH_END}\n\n\n")  # Extra newline before data
+        all_Df.to_csv(f, index=False)
+    print(f'[SUCCESS] Audit report generated for {TEAM_NAME} from {MONTH_START} to {MONTH_END} in {c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.csv')

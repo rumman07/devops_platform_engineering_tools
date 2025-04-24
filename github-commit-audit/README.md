@@ -16,9 +16,9 @@ Get your github personal access token and make sure you have export it into your
 
 Place the `emails` separated by space into the `MAILUSERS` variable in the script `audit-gen-with-mailing.sh`
 
-## Step-4 Give the desired month
+## Step-4 Give the desired variables for auditing
 
-Give the month you want to extract the audit. But it has to be in this format `YYYY-MM`. Example `2025-01`.
+Firstly `is_period` if you want to use duration like from start month to after two months auditing. Then set this variable `is_period` to 1 and also set the variables `MONTH_START` and `PERIOD` as well. Otherwise you want to get audit from a month range then set this variable  `is_period` to 0 and also set the variables `MONTH_START` and `MONTH_END`.
 
 ## Step-5 Give Execute permission to `audit-gen-with-mailing.sh` script
 
@@ -31,4 +31,4 @@ chmod +x ./audit-gen-with-mailing.sh
 ./audit-gen-with-mailing.sh
 ```
 
-After a successful execution you will notice some `<Team_Name>-<Month>-audit.csv` files in the current directory which will be sent over email to the distributions.
+After a successful execution you will notice some `<Team_Name>-<Month_Start>-to-<Month_End></Month_End>-audit.csv` files in the current directory which will be sent over email to the distributions.
