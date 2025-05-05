@@ -89,11 +89,11 @@ if __name__ == "__main__":
     # extracting the end month
     MONTH_END = sys.argv[3]
     # extracting the team_name
-    TEAM_NAME = sys.argv[3]
+    TEAM_NAME = sys.argv[4]
     # extracting the is_period
-    is_period = int(sys.argv[4])
+    is_period = int(sys.argv[5])
     # extracting the period
-    PERIOD = int(sys.argv[5])
+    PERIOD = int(sys.argv[6])
 
 
     # creating datetime object
