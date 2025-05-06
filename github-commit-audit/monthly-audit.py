@@ -165,17 +165,5 @@ if __name__ == "__main__":
 
 
     filename = f"{c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.xlsx"
-
-    with pd.ExcelWriter(filename, engine='xlsxwriter') as writer:
-        workbook  = writer.book
-        worksheet = workbook.add_worksheet('Audit Report')
-        writer.sheets['Audit Report'] = worksheet
-
-        # Write custom headers
-        worksheet.write('A1', 'Audit Report')
-        worksheet.write('A2', f'Team: {TEAM_NAME}')
-        worksheet.write('A3', f'Period: {MONTH_START} to {MONTH_END}')
-
-        # Write the DataFrame starting from row 5 (index 4)
-        all_Df.to_excel(writer, sheet_name='Audit Report', startrow=5, index=False)
+    all_Df.to_csv(filename, index=False)
     print(f'[SUCCESS] Audit report generated for {TEAM_NAME} from {MONTH_START} to {MONTH_END} in {c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.csv')
