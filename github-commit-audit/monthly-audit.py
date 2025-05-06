@@ -164,6 +164,6 @@ if __name__ == "__main__":
             continue
 
 
-    filename = f"{c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.xlsx"
+    filename = f"{c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.csv"
     all_Df.to_csv(filename, index=False)
     print(f'[SUCCESS] Audit report generated for {TEAM_NAME} from {MONTH_START} to {MONTH_END} in {c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.csv')
