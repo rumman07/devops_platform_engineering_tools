@@ -102,6 +102,7 @@ if __name__ == "__main__":
         # get the end month in datetime format
         end_month = start_month - relativedelta(months=PERIOD)
         MONTH_END = end_month.strftime('%Y-%m')
+        MONTH_START, MONTH_END = MONTH_END, MONTH_START
     else:
         # get the end month in datetime format
         end_month = datetime.strptime(MONTH_END, '%Y-%m')
