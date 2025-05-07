@@ -70,6 +70,7 @@ def audit_commits(config,users):
             df = pd.concat([df,commits],ignore_index=True)
             time.sleep(5)
         except Exception as e:
+            print(f'[ERROR] Error occurred while fetching commits for user {user} in repository {config["REPO_NAME"]}: {e}')
             logging.error(f"Error occurred while fetching commits for user {user} in repository {repo}: {e}")
             continue
     df.drop_duplicates(inplace=True)
@@ -136,7 +137,7 @@ if __name__ == "__main__":
         "SINCE":SINCE,
         "UNTIL":UNTIL,
     }
-    
+
     with open(f'{c_dir}/repos.txt') as f:
         repos = f.read().splitlines()
 
