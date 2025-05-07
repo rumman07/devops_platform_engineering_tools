@@ -103,6 +103,7 @@ if __name__ == "__main__":
         end_month = start_month - relativedelta(months=PERIOD)
         MONTH_END = end_month.strftime('%Y-%m')
         MONTH_START, MONTH_END = MONTH_END, MONTH_START
+        start_month, end_month = end_month, start_month
     else:
         # get the end month in datetime format
         end_month = datetime.strptime(MONTH_END, '%Y-%m')
@@ -135,8 +136,7 @@ if __name__ == "__main__":
         "SINCE":SINCE,
         "UNTIL":UNTIL,
     }
-    print(SINCE)
-    print(UNTIL)
+    
     with open(f'{c_dir}/repos.txt') as f:
         repos = f.read().splitlines()
 
