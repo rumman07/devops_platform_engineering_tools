@@ -76,6 +76,17 @@ def audit_commits(config,users):
     df.drop_duplicates(inplace=True)
     return df
 
+
+# Save the DataFrame to a CSV file with custom text
+def save_csv_with_meta_info(dataframe, filename, meta_info):
+    # Open the file in write mode
+    with open(filename, 'w') as f:
+        # Write the custom text first
+        f.write(meta_info)
+        
+        # Now write the DataFrame to the file
+        dataframe.to_csv(f, index=False)
+
 if __name__ == "__main__":
 
     # Get the usernames passed as an argument
@@ -166,5 +177,7 @@ if __name__ == "__main__":
 
 
     filename = f"{c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.csv"
-    all_Df.to_csv(filename, index=False)
+    # meta info to be added before the header
+    meta_info = f'\n\nAudit Report from {MONTH_START} to {MONTH_END}\n\nTeam_Name:{TEAM_NAME}\n\n'
+    save_csv_with_meta_info(all_Df, filename, meta_info)
     print(f'[SUCCESS] Audit report generated for {TEAM_NAME} from {MONTH_START} to {MONTH_END} in {c_dir}/{TEAM_NAME}-{MONTH_START}-to-{MONTH_END}-audit.csv')
